@@ -1,7 +1,7 @@
 #!/bin/bash -xe
 
-TARGET=relion-v31
-RELION_TAG=ver3.1
+TARGET=relion-v40
+RELION_TAG=ver4.0
 MPI_MODULE=intelmpi
 
 ##########################################################

@@ -7,11 +7,11 @@
 #
 
 #################################################
-# set valiables
-export PCLUSTER_CLUSTER_NAME=my-relion-cluster
+# set variables
+export PCLUSTER_CLUSTER_NAME=itx-relion-cluster
 echo "export PCLUSTER_CLUSTER_NAME=${PCLUSTER_CLUSTER_NAME}" |tee -a ~/.bashrc
 AWS_REGION=us-east-1
-PCLUSTER_VERSION=3.1.3
+PCLUSTER_VERSION=3.3.1
 PCLUSTER_CONFIG_TEMPLATE_NAME=template_pcluster3_relion_cluster.yaml
 PCLUSTER_CONFIG_NAME=generated-${PCLUSTER_CONFIG_TEMPLATE_NAME}
 PCLUSTER_POST_INSTALL=pcluster_scripts/02.install.relion-dependencies-ubuntu.all.sh
@@ -19,7 +19,7 @@ CHECK_INSTANCE_TYPE=g4dn.metal
 
 
 if [[ -z "${SSH_KEY}" ]]; then
-    export SSH_KEY=pcluster-$(uuidgen --random | cut -d'-' -f1)-$(date +%F)
+    export SSH_KEY=relion-pcluster-$(uuidgen --random | cut -d'-' -f1)-$(date +%F)
     echo "export SSH_KEY=${SSH_KEY}" |tee -a ~/.bashrc
     SET_SSH_KEY=true
 fi
@@ -63,6 +63,7 @@ sed \
 # Prepare configure script for Head/Compute nodes
 
 aws s3 mb s3://${BUCKET_NAME} --region ${AWS_REGION}
+aws s3api put-bucket-tagging --bucket ${BUCKET_NAME} --tagging "TagSet=[{Key=itx:system, Value=cryoem:relion}]"
 aws s3 cp ${ASSET_BUCKET}/scripts/setup/pcluster/3/generic/custom-actions/on-node-configured/on-node-configured.sh .
 chmod +x on-node-configured.sh
 aws s3 cp on-node-configured.sh s3://${BUCKET_NAME}/

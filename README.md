@@ -3,8 +3,8 @@
 set up example for Relion on AWS ParallelCluster
 
 - Validated conditions
-  - AWS ParallelCluster 3.1.3
-  - Relion 3.1.3
+  - AWS ParallelCluster 3.3.1
+  - Relion 4.0
   - `us-east-1` region
 
 ## Architecture Overview
