@@ -22,7 +22,7 @@ On AWS CloudShell, run following commands for cluster creation. The `create_reli
 You could change `AWS_REGION` parameter in the script.
 
 ```
-git clone https://github.com/DaisukeMiyamoto/aws-parallelcluster-relion
+git clone https://github.com/interlinetx/aws-parallelcluster-relion.git
 cd aws-parallelcluster-relion/01_setup_cluster
 ./create_relion_cluster.sh
 source ~/.bashrc
@@ -61,7 +61,7 @@ Run following commands on the terminal for installing Relion.
 
 ```
 cd /shared
-git clone https://github.com/DaisukeMiyamoto/aws-parallelcluster-relion
+git clone https://github.com/interlinetx/aws-parallelcluster-relion.git
 cd aws-parallelcluster-relion/02_relion_gui
 chmod +x ./setup_relion_v31_gui.sh
 ./setup_relion_v31_gui.sh

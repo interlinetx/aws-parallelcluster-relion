@@ -10,7 +10,7 @@
 # set variables
 export PCLUSTER_CLUSTER_NAME=itx-relion-cluster
 echo "export PCLUSTER_CLUSTER_NAME=${PCLUSTER_CLUSTER_NAME}" |tee -a ~/.bashrc
-AWS_REGION=us-east-1
+AWS_REGION=us-west-2
 PCLUSTER_VERSION=3.3.1
 PCLUSTER_CONFIG_TEMPLATE_NAME=template_pcluster3_relion_cluster.yaml
 PCLUSTER_CONFIG_NAME=generated-${PCLUSTER_CONFIG_TEMPLATE_NAME}
@@ -74,6 +74,6 @@ aws s3 cp ${PCLUSTER_POST_INSTALL} s3://${BUCKET_NAME}/scripts/
 #################################################
 # Create Cluster
 
-pip3 install aws-parallelcluster==${PCLUSTER_VERSION} --user --quiet
+pip3 install aws-parallelcluster==${PCLUSTER_VERSION} --user --quiet --use-feature=2020-resolver
 pcluster create-cluster --cluster-name ${PCLUSTER_CLUSTER_NAME} --cluster-configuration ${PCLUSTER_CONFIG_NAME}
 #pcluster create-cluster --dryrun true --cluster-name ${PCLUSTER_CLUSTER_NAME} --cluster-configuration ${PCLUSTER_CONFIG_NAME}
