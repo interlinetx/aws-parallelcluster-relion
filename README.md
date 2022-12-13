@@ -60,6 +60,8 @@ On NICE-DCV desktop, open **terminal** from Activities button on top-left corner
 Run following commands on the terminal for installing Relion.
 
 ```
+sudo apt update
+sudo apt install libtiff-dev
 cd /shared
 git clone https://github.com/interlinetx/aws-parallelcluster-relion.git
 cd aws-parallelcluster-relion/02_relion_gui
