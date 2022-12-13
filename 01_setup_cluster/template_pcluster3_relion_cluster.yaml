@@ -110,9 +110,9 @@ Scheduling:
 # Storage
 #######################################################
 SharedStorage:
-  - Name: FsxLustre0
+  - Name: RelionFsxLustre0
     StorageType: FsxLustre
     MountDir: /shared
     FsxLustreSettings:
-      StorageCapacity: 1200
+      StorageCapacity: 3600
       DeploymentType: SCRATCH_2
