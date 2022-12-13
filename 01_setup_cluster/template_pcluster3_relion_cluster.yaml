@@ -114,5 +114,5 @@ SharedStorage:
     StorageType: FsxLustre
     MountDir: /shared
     FsxLustreSettings:
-      StorageCapacity: 3600
+      StorageCapacity: 4800
       DeploymentType: SCRATCH_2
